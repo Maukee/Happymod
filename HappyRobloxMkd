@@ -1,0 +1,51 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "menu", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "cmds:",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "cmds"
+})
+
+Tab:AddButton({
+	Name = "infinite yield",
+	Callback = function()
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+      print("button pressed")
+  	end    
+})
+
+Tab:AddSlider({
+	Name = "walk speed",
+	Min = 0,
+	Max = 200,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "bananas",
+	Callback = function(Value)
+      game.Players.LocalPlayer.Character.Humanoid.walkspeed = value
+		print(Value)
+	end    
+})
+
+Tab:AddSlider({
+	Name = "jumpPower",
+	Min = 0,
+	Max = 200,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "jumpPower",
+	Callback = function(Value1)
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = value1
+		print(Value1)
+	end    
+})
+
+end
+OrionLib:Init()
